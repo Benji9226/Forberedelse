@@ -24,35 +24,35 @@ namespace HPlusSport.API.Controllers
         //    return _context.Products.ToArray();
         //}
 
-        //[HttpGet]
-        //public ActionResult GetAllProducts()
-        //{
-        //    return Ok(_context.Products.ToArray());
-        //}
-
         [HttpGet]
-        public async Task<ActionResult> GetAllProducts()
+        public ActionResult GetAllProducts()
         {
-            return Ok(await _context.Products.ToArrayAsync());
+            return Ok(_context.Products.ToArray());
         }
 
-        //[HttpGet("{id}")]
-        //public ActionResult GetProducts(int id)
+        //[HttpGet]
+        //public async Task<ActionResult> GetAllProducts()
         //{
-        //    var product = _context.Products.Find(id);
-        //    return Ok(product);
+        //    return Ok(await _context.Products.ToArrayAsync());
         //}
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetProducts(int id)
+        public ActionResult GetProducts(int id)
         {
-            var product = _context.Products.FindAsync(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-            return Ok(product);
+            var product = _context.Products.Find(id);
+            return NotFound();
         }
+
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult> GetProducts(int id)
+        //{
+        //    var product = _context.Products.FindAsync(id);
+        //    if (product == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(product);
+        //}
 
 
     }
